@@ -1,0 +1,22 @@
+{
+  "name": "traq-analyis-platform",
+  "module": "src/main.ts",
+  "type": "module",
+  "scripts": {
+    "start": "bun run src/main.ts",
+    "generate-api": "bunx swagger-typescript-api -p https://raw.githubusercontent.com/traPtitech/traQ/master/docs/v3-api.yaml -o src/gateways -n api-client.ts",
+    "migration:generate": "drizzle-kit generate:sqlite",
+    "migration:run": "bun run src/repository/migration.ts"
+  },
+  "devDependencies": {
+    "better-sqlite3": "^9.2.2",
+    "bun-types": "latest",
+    "drizzle-kit": "^0.20.7"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.29.1"
+  }
+}
